@@ -4,17 +4,17 @@ var generateBtn = document.querySelector("#generate");
 var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var specialChar = ['!','@','#','$','%','^','&','*','(',')','_','+','-','=','[',,']','{','}',';',':','|','<','>','?'];
+var specialsChar = ['!','@','#','$','%','^','&','*','(',')','_','+','-','=','[',,']','{','}',';',':','|','<','>','?'];
 var lowerUpper = lowerCase.concat(upperCase);
 var lowerUpperNum = lowerUpper.concat(number);
-var all = lowerUpperNum.concat(specialChar);
+var all = lowerUpperNum.concat(specialsChar);
 var lowerNum = lowerCase.concat(number);
-var lowerSpecial = lowerCase.concat(specialChar);
-var lowerUpperSpecial = lowerUpper.concat(specialChar);
+var lowerSpecial = lowerCase.concat(specialsChar);
+var lowerUpperSpecial = lowerUpper.concat(specialsChar);
 var upperNum = upperCase.concat(number);
-var upperSpecial = upperCase.concat(specialChar);
-var upperNumSpecial = upperNum.concat(specialChar);
-var numberSpecial = number.concat(specialChar);
+var upperSpecial = upperCase.concat(specialsChar);
+var upperNumSpecial = upperNum.concat(specialsChar);
+var numberSpecial = number.concat(specialsChar);
 
 // Function that generators a password based on users responses
 function generatePassword() {
@@ -52,7 +52,7 @@ function generatePassword() {
   for (i=0; i <= chars; i++) {
     if(lower && upper && num && specialChar){
       randomNum = Math.floor(Math.random() * all.length);
-      password += all[randomNum]
+      password += all[randomNum];
     } else if (lower && upper && num && !specialChar) {
       randomNum = Math.floor(Math.random() * lowerUpperNum.length);
       password += lowerUpperNum[randomNum];
@@ -90,8 +90,8 @@ function generatePassword() {
       randomNum = Math.floor(Math.random() * number.length);
       password += number[randomNum];
     } else if (!lower && !upper && !num && specialChar) {
-      randomNum = Math.floor(Math.random() * specialChar.length);
-      password += specialChar[randomNum];
+      randomNum = Math.floor(Math.random() * specialsChar.length);
+      password += specialsChar[randomNum];
     }
   }
   // returns the password that was created
